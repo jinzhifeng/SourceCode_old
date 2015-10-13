@@ -1,3 +1,5 @@
+/*  github.com/jinzhifeng  */
+/*  QQ356290462            */
 #include "st7920.h"
 
 /* 延时子程序 */
@@ -170,3 +172,5 @@ void Lcd_DisplayString(uint8_t x, uint8_t y, uint8_t ClrString,	uint16_t display
 }
 
 
+/*  github.com/jinzhifeng  */
+/*  QQ356290462            */
