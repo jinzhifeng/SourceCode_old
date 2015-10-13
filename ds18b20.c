@@ -1,3 +1,5 @@
+/*  github.com/jinzhifeng  */
+/*  QQ356290462            */
 #include "ds18b20.h"
 
 DS18B20_CheckState DS18B20_Init(void)
@@ -138,3 +140,5 @@ volatile void DS18B20_DelayXus(uint32_t DelayXus)
   }
 }
 
+/*  github.com/jinzhifeng  */
+/*  QQ356290462            */
