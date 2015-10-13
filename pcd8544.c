@@ -1,3 +1,5 @@
+/*  github.com/jinzhifeng  */
+/*  QQ356290462            */
 #include "pcd8544.h"
 
 /* ASCII表 */
@@ -192,3 +194,5 @@ void Lcd_Pcd8544_PutEnglishString(uint16_t X, uint16_t Y, uint8_t *EnglishString
 }
 
 
+/*  github.com/jinzhifeng  */
+/*  QQ356290462            */
