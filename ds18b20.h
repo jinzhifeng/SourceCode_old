@@ -1,3 +1,5 @@
+/*  github.com/jinzhifeng  */
+/*  QQ356290462            */
 #ifndef __DS18B20_H
 #define __DS18B20_H
 
@@ -42,3 +44,7 @@ void DS18B20_WriteOneByte(uint8_t WriteByte);
 float Get_DS18B20_Temperature(void);
 
 #endif
+
+
+/*  github.com/jinzhifeng  */
+/*  QQ356290462            */
