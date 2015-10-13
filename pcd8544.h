@@ -1,3 +1,5 @@
+/*  github.com/jinzhifeng  */
+/*  QQ356290462            */
 #ifndef __PCD8544_H
 #define __PCD8544_H
 
@@ -30,3 +32,6 @@ void Lcd_Pcd8544_SetPos(uint16_t Xpos, uint16_t Ypos);
 void Lcd_Pcd8544_PutEnglishChar(uint8_t EnglishChar);
 void Lcd_Pcd8544_PutEnglishString(uint16_t X, uint16_t Y, uint8_t *EnglishString);
 #endif
+
+/*  github.com/jinzhifeng  */
+/*  QQ356290462            */
