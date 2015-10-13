@@ -1,3 +1,5 @@
+/*  github.com/jinzhifeng  */
+/*  QQ356290462            */
 #ifndef __ST7920_H
 #define __ST7920_H
 
@@ -32,3 +34,6 @@ void Lcd_DisplayString(uint8_t x, uint8_t y, uint8_t ClrString,	uint16_t display
 
 
 #endif
+
+/*  github.com/jinzhifeng  */
+/*  QQ356290462            */
