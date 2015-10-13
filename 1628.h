@@ -1,3 +1,5 @@
+/*  github.com/jinzhifeng  */
+/*  QQ356290462            */
 #ifndef __1628_H
 #define __1628_H
 
@@ -22,3 +24,6 @@ void SM1628_Display(uint8_t Data1, uint8_t Data2, uint8_t Data3, uint8_t Data4, 
 void SM1628_PutDisplayValue(uint16_t DispVal, uint8_t Brightness);
 
 #endif
+
+/*  github.com/jinzhifeng  */
+/*  QQ356290462            */
