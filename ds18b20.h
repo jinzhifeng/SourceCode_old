@@ -32,9 +32,22 @@ typedef enum	//声明一个枚举类型
 }DS18B20_CheckState;	//定义枚举类型名称
 
 /* DS18B20 PORT Define */
-#define DS18B20_DQ_H() 				HAL_GPIO_WritePin(GPIOD, GPIO_PIN_8, GPIO_PIN_SET)		//PD13
-#define DS18B20_DQ_L() 				HAL_GPIO_WritePin(GPIOD, GPIO_PIN_8, GPIO_PIN_RESET)	//PD13
+#define DS18B20_DQ_SET() 				HAL_GPIO_WritePin(GPIOD, GPIO_PIN_8, GPIO_PIN_SET)		//PD13
+#define DS18B20_DQ_CLR() 				HAL_GPIO_WritePin(GPIOD, GPIO_PIN_8, GPIO_PIN_RESET)	//PD13
 #define ReadPin_DS18B20_DQ() 	HAL_GPIO_ReadPin(GPIOD, GPIO_PIN_8)								//PD13
+
+#define SEARCH_ROM 0xF0
+#define READ_ROM 0x33
+#define MATCH_ROM 0x55
+#define SKIP_ROM 0xCC
+#define ALARM_SEARCH 0xEC
+ 
+#define READ_SCRATCHPAD 0xBE
+#define CONVERT_T 0x44
+#define WRITE_SCRATCHPAD 0x4E
+#define COPY_SCRATCHPAD 0x48
+#define RECALL_EE 0xB8
+#define READ_POWER_SUPPLY 0xB4
 
 /* DS18B20 Function Define */
 DS18B20_CheckState DS18B20_Init(void);
@@ -44,7 +57,6 @@ void DS18B20_WriteOneByte(uint8_t WriteByte);
 float Get_DS18B20_Temperature(void);
 
 #endif
-
 
 /*  github.com/jinzhifeng  */
 /*  QQ356290462            */
