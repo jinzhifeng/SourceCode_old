@@ -1,5 +1,6 @@
-/* github.com/jinzhifeng */
-/* QQ356290462 */
+/*  github.com/jinzhifeng  */
+/*  QQ : 356290462         */
+/* jin-zhifeng@hotmail.com */
 #ifndef __FD650_H
 #define __FD650_H
 
@@ -75,5 +76,6 @@ void FD650_PutDisplayValue(uint16_t DispVal, uint8_t Brightness);
 
 #endif
 
-/* github.com/jinzhifeng */
-/* QQ356290462 */
+/*  github.com/jinzhifeng  */
+/*  QQ : 356290462         */
+/* jin-zhifeng@hotmail.com */
