@@ -104,27 +104,27 @@
 void Lcd_Pcd8544_WriteByte(uint8_t WriteByte, uint8_t CommandOrDataSelect)
 {
 	uint8_t i;
-	Lcd_Pcd8544_SCE_L(); //开芯片使能，0有效
+	Lcd_Pcd8544_SCE_CLR(); //开芯片使能，0有效
 	
 	if(CommandOrDataSelect == 1)
 	{
-		Lcd_Pcd8544_DC_H();	// 指令(D/C = 0), RAM数据(D/C = 1)
+		Lcd_Pcd8544_DC_SET();	// 指令(D/C = 0), RAM数据(D/C = 1)
 	}
-	else Lcd_Pcd8544_DC_L();
+	else Lcd_Pcd8544_DC_CLR();
 	
 	for(i = 0; i < 8; i++)
 	{
 		if(WriteByte & 0x80)
 		{
-			Lcd_Pcd8544_SDIN_H();
+			Lcd_Pcd8544_SDIN_SET();
 		}
-		else Lcd_Pcd8544_SDIN_L();
+		else Lcd_Pcd8544_SDIN_CLR();
 		
-		Lcd_Pcd8544_SCLK_L();
+		Lcd_Pcd8544_SCLK_CLR();
 		WriteByte <<= 1;
-		Lcd_Pcd8544_SCLK_H();
+		Lcd_Pcd8544_SCLK_SET();
 	}
-	Lcd_Pcd8544_SCE_H();	//关芯片使能，0有效
+	Lcd_Pcd8544_SCE_SET();	//关芯片使能，0有效
 }
 
 /* 延时子程序 */
@@ -138,9 +138,9 @@ void Lcd_Pcd8544_Delayms(uint32_t n)
 /* PCD8544初始化 */
 void Lcd_Pcd8544_Init(void)
 {
-	Lcd_Pcd8544_RST_H();	// RST = 0	
+	Lcd_Pcd8544_RST_CLR();	// RST = 0	
 	Lcd_Pcd8544_Delayms(100);
-	Lcd_Pcd8544_RST_H();	// RST = 1
+	Lcd_Pcd8544_RST_SET();	// RST = 1
 	
 	Lcd_Pcd8544_WriteByte(0x21, 0);		//打开扩展指令集设置LCD模式
 	Lcd_Pcd8544_WriteByte(0xCC, 0);		//设置偏值电压
