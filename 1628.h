@@ -1,5 +1,7 @@
 /*  github.com/jinzhifeng  */
-/*  QQ356290462            */
+/*  QQ : 356290462         */
+/* jin-zhifeng@hotmail.com */
+
 #ifndef __1628_H
 #define __1628_H
 
@@ -25,6 +27,6 @@ void SM1628_PutDisplayValue(uint16_t DispVal, uint8_t Brightness);
 
 #endif
 
-
 /*  github.com/jinzhifeng  */
-/*  QQ356290462            */
+/*  QQ : 356290462         */
+/* jin-zhifeng@hotmail.com */
