@@ -1,5 +1,7 @@
 /*  github.com/jinzhifeng  */
-/*  QQ356290462            */
+/*  QQ : 356290462         */
+/* jin-zhifeng@hotmail.com */
+
 #include "1628.h"
 
 uint8_t  DispSegCode[]= {0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07, 0x7F, 0x6F, 0x77, 0x7C, 0x39, 0x5E, 0x79, 0x71};	 //共阴段码
@@ -64,4 +66,5 @@ void SM1628_PutDisplayValue(uint16_t DispVal, uint8_t Brightness)
 }
 
 /*  github.com/jinzhifeng  */
-/*  QQ356290462            */
+/*  QQ : 356290462         */
+/* jin-zhifeng@hotmail.com */
