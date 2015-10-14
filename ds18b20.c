@@ -12,11 +12,11 @@ DS18B20_CheckState DS18B20_Init(void)
 */
 {
 	DS18B20_CheckState AckFlag;
-	DS18B20_DQ_H();	//释放总线为高电平初始态
+	DS18B20_DQ_SET();	//释放总线为高电平初始态
 	DS18B20_DelayXus(100);
-	DS18B20_DQ_L();	//拉低总线
+	DS18B20_DQ_CLR();	//拉低总线
 	DS18B20_DelayXus(500);	//精确延时,维持至少480us
-	DS18B20_DQ_H();	//释放总线
+	DS18B20_DQ_SET();	//释放总线
 	DS18B20_DelayXus(50);	//等待15-60us后,检测ds18b20是否发出的60-240us低电平存在脉冲	
 	if(ReadPin_DS18B20_DQ() == GPIO_PIN_RESET)	//读DS18B20是否发出低电平存在脉冲
 	{
@@ -44,16 +44,16 @@ uint8_t DS18B20_ReadOneByte(void)
 	uint8_t i, ReadData = 0; //必须将默认值设为0，否则需要加ReadData &= 0x7F;
 	for(i = 0; i < 8; i++)
 	{
-		DS18B20_DQ_L();	//拉低总线
+		DS18B20_DQ_CLR();	//拉低总线
 		DS18B20_DelayXus(1);
-		DS18B20_DQ_H();	//释放总线
+		DS18B20_DQ_SET();	//释放总线
 		ReadData >>= 1;	//准备下一位
 		if(ReadPin_DS18B20_DQ())
 			ReadData |= 0x80;
 		else 
 			ReadData &= 0x7F;
 	  DS18B20_DelayXus(65);
-		DS18B20_DQ_H();	//释放总线
+		DS18B20_DQ_SET();	//释放总线
 	}
 	return ReadData;
 }
@@ -70,13 +70,13 @@ void DS18B20_WriteOneByte(uint8_t WriteByte)
 	uint8_t i;
 	for(i = 0; i < 8; i++)
 	{
-		DS18B20_DQ_L();	//拉低总线
+		DS18B20_DQ_CLR();	//拉低总线
 		if(WriteByte & 0x01)
-			DS18B20_DQ_H();	//释放总线
+			DS18B20_DQ_SET();	//释放总线
 		else
-			DS18B20_DQ_L();	//拉低总线
+			DS18B20_DQ_CLR();	//拉低总线
 		DS18B20_DelayXus(65);
-		DS18B20_DQ_H();	//释放总线
+		DS18B20_DQ_SET();	//释放总线
 		WriteByte >>= 1;	//准备下一位
 	}
 }
@@ -90,21 +90,24 @@ float Get_DS18B20_Temperature(void)
 * \retval      Temperature
 */
 {
-	uint8_t TL, TH;
+	uint8_t TL;
+  uint16_t TH;
 	float Temperature;
 	DS18B20_Init();
-	DS18B20_WriteOneByte(0xCC);	//跳过读序列号的操作
-	DS18B20_WriteOneByte(0x44);	//启动温度转换
+	DS18B20_WriteOneByte(SKIP_ROM);	//跳过读序列号的操作
+	DS18B20_WriteOneByte(CONVERT_T);	//启动温度转换
 	DS18B20_DelayXus(20);
 	DS18B20_Init();
-	DS18B20_WriteOneByte(0xCC);	//跳过读序列号的操作
-	DS18B20_WriteOneByte(0xBE);	//读温度寄存器,共9个byte,前两个byte为温度值
+	DS18B20_WriteOneByte(SKIP_ROM);	//跳过读序列号的操作
+	DS18B20_WriteOneByte(READ_SCRATCHPAD);	//读温度寄存器,共9个byte,前两个byte为温度值
 	TL = DS18B20_ReadOneByte();	//TL存低字节
 	TH = DS18B20_ReadOneByte();	//TH存高字节
-	TH <<= 4;
-	TH += (TL & 0xF0) >> 4;
-	Temperature = TH;
-	
+//	TH <<= 4;
+//	TH += (TL & 0xF0) >> 4;
+//	Temperature = TH;
+	TH <<= 8;
+	TH |= TL;
+	Temperature = TH * 0.0625;
 	return Temperature;
 }
 
