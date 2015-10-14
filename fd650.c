@@ -1,5 +1,6 @@
-/* github.com/jinzhifeng */
-/* QQ356290462 */
+/*  github.com/jinzhifeng  */
+/*  QQ : 356290462         */
+/* jin-zhifeng@hotmail.com */
 #include "fd650.h"
 
 /* the numbering of the frontpanel LED:
@@ -194,5 +195,6 @@ void FD650_PutDisplayValue(uint16_t DispVal, uint8_t Brightness)
 }
 
 
-/* github.com/jinzhifeng */
-/* QQ356290462 */
+/*  github.com/jinzhifeng  */
+/*  QQ : 356290462         */
+/* jin-zhifeng@hotmail.com */
